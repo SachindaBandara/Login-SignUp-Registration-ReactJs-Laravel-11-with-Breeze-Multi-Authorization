@@ -1,9 +1,12 @@
-import { Children, createContext, useState } from "react";
+import { Children, createContext, useContext, useState } from "react";
 import { useAsyncError } from "react-router-dom";
 
 const StateContext = createContext({
   user: null,
   token: null,
+  setUser: () => {},
+  setToken: () => {},
+
 });
 
 export const ContextProvider = ({ Children }) => {
@@ -33,3 +36,5 @@ export const ContextProvider = ({ Children }) => {
     </StateContext.Provider>
   );
 };
+
+export const useStateContext = () => useContext(StateContext);
