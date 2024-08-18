@@ -9,7 +9,16 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request) {
+         $credentials = $request ->validated();
+
+         if(!Auth::attempt($credentials)){
+            return response([
+                'message' => 'Provided email address or password is incorrect'
+            ]); 
+         }
+    }
+    public function signup(SignupRequest $request)
     {
         /**
          * @var \App\Models\User $user
@@ -22,8 +31,8 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-       $token =  $user -> createToken('main') -> plainTextToken;
+        $token =  $user->createToken('main')->plainTextToken;
+        return response(compact('user', 'token'));
     }
-    public function signup(SignupRequest $request) {}
     public function logout(Request $request) {}
 }
