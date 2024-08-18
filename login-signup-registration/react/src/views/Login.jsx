@@ -5,7 +5,8 @@ export default function Login() {
     ev.preventDefault();
   };
   return (
-
+    <div className="login-signup-form animated fadeInDown">
+      <div className="form">
         <form onSubmit={onSubmit}>
           <h1 className="title">
             Login into your account
@@ -17,5 +18,7 @@ export default function Login() {
             Not Registered? <link to = "/signup">Create an account</link>
           </p>
         </form>
+      </div>
+    </div>
   );
 }
