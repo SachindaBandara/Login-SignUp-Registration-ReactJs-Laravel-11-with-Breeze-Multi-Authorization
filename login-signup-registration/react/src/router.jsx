@@ -14,14 +14,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Navigate to="/User" />,
+        element: <Navigate to="/user" />,
       },
       {
-        path: "/Dashboard",
+        path: "/dashboard",
         element: <Dashboard />,
       },
       {
-        path: "/User",
+        path: "/user",
         element: <User />,
       },
     ],
@@ -31,11 +31,11 @@ const router = createBrowserRouter([
     element: <Guestlayout />,
     children: [
       {
-        path: "/Login",
+        path: "/login",
         element: <Login />,
       },
       {
-        path: "/SignUp",
+        path: "/signUp",
         element: <SignUp />,
       },
     ],

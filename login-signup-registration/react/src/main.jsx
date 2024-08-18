@@ -1,14 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import { RouterProvider } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Dashboard from './views/Dashboard';
+import './index.css';
+import {RouterProvider} from "react-router-dom";
 import router from "./router.jsx";
-import { ContextProvider } from "./contextProvider/ContextProvider.jsx";
+import {ContextProvider} from './contextProvider/ContextProvider.jsx';
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
     <ContextProvider>
       <RouterProvider router={router} />
     </ContextProvider>
-  </StrictMode>
+  </React.StrictMode>
 );

@@ -6,7 +6,7 @@ export default function DefaultLayout() {
   const { user, token } = useStateContext();
 
   if (!token) {
-    return <Navigate to="/Login" />;
+    return <Navigate to="/login" />;
   }
 
   const onLogOut = (ev) => {
@@ -24,7 +24,7 @@ export default function DefaultLayout() {
           <div>Header</div>
           <div>
             {user.name}
-            <a href="#" onClick={onLogOut} className="btn-logout">
+            <a href="#" onClick={onLogout} className="btn-logout">
               Logout
             </a>
           </div>

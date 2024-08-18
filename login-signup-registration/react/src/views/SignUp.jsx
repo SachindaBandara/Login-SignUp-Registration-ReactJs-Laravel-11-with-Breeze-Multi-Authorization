@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import axiosClient from "../axios-client";
 import { useStateContext } from "../contextProvider/ContextProvider";
 
-export default function Login() {
+export default function SignUp() {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -21,14 +21,14 @@ export default function Login() {
 
     axiosClient
       .post("/signup", payload)
-      .then((data) => {
+      .then(({ data }) => {
         setUser(data.user);
         setToken(data.token);
       })
       .catch((err) => {
         const response = err.response;
-        if (response && reaponse.status == 422) {
-          console.log(reaponse.data.errors);
+        if (response && response.status === 422) {
+          console.log(response.data.errors);
         }
       });
   };

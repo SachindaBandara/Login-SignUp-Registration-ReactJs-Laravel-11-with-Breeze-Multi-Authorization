@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
 }
+
 html, body, #root, #defaultLayout, #guestLayout {
     min-height: 100vh;
 }
