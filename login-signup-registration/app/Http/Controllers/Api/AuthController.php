@@ -24,7 +24,7 @@ class AuthController extends Controller
          * @var \App\Models\User $user
          */
         $data = $request->validated();
-        $user = User::create([
+        $user =   User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             //encrypt the data
