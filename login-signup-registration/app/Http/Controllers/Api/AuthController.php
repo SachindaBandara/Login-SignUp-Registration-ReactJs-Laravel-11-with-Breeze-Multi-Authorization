@@ -9,14 +9,15 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request) {
-         $credentials = $request ->validated();
+    public function login(LoginRequest $request)
+    {
+        $credentials = $request->validated();
 
-         if(!Auth::attempt($credentials)){
+        if (!Auth::attempt($credentials)) {
             return response([
                 'message' => 'Provided email address or password is incorrect'
             ]);
-         }
+        }
     }
     public function signup(SignupRequest $request)
     {
@@ -24,7 +25,7 @@ class AuthController extends Controller
          * @var \App\Models\User $user
          */
         $data = $request->validated();
-        $user =   User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             //encrypt the data
