@@ -19,6 +19,7 @@ class Admin
 
         // Create middleware to redirect to the user dashboard.
         // User or Editor can not enter the admin dashboard.
+        
         if (auth::user()->userType != 'admin') {
 
             return redirect('/');
